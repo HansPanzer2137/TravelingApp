@@ -1,18 +1,18 @@
 # Traveling Salesman problem
 Android + Google API Traveling Salesman Problem
-
+<br>
 
 ## General math problems
 
 General problem in algorithm is time.<br>
 For n cities algorithm calculate (n-1)!/2 so it means that algorithm do n!
+<br><br>
+That calculations give you informations about time that algorithm spends on calculation<br>
+Data was tested on device [Xiaomi Mi9 6/128GB](https://www.mgsm.pl/pl/katalog/xiaomi/mi9/) <br><br>
 
-That calculations give you informations about time that algorithm spends on calculation
-Data was tested on device [Xiaomi Mi9 6/128GB](https://www.mgsm.pl/pl/katalog/xiaomi/mi9/) 
-
-6! = ?s
-7! = ?s
-8! = 86370 ms = 86.37 s
+6! = ?s<br>
+7! = ?s<br>
+8! = 86370 ms = 86.37 s<br>
 
 
 <br><br>
