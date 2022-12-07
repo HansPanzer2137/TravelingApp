@@ -3,6 +3,8 @@ package com.example.travelingapp
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.FrameLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
             for (permutation in permutations){
                 Log.d("TRY",permutation.toString())
+
                 logcat = logcat + permutation.toString() + "\n"
 
 
@@ -80,17 +83,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val calcBNT: Button = findViewById(R.id.calculate)
+        val editList: Button = findViewById(R.id.button2)
         val logTXT: TextView = findViewById(R.id.logText)
         val finalTXT: TextView = findViewById(R.id.text2137)
+        val progress: ProgressBar = findViewById(R.id.progressBAR2137)
+
+
 
 
         calcBNT.setOnClickListener{
             var graph = Graph()
             var algo = Salesman(graph)
             var path = algo.solve()
+
             logTXT.text = algo.logcat
             Log.d("ans",path.toString())
             finalTXT.text = path.toString()
+        }
+        editList.setOnClickListener{
+
         }
 
     }

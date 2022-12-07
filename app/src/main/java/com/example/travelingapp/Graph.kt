@@ -18,7 +18,7 @@ class Graph(val nodeCount: Int,val edgeCount: Int) {
         }
     }
 
-    constructor(nodeCount: Int = 8, edgeCount: Int = 50, maxEdgeCost: Int = 10) : this(nodeCount,edgeCount) {
+    constructor(nodeCount: Int = 6, edgeCount: Int = 50, maxEdgeCost: Int = 10) : this(nodeCount,edgeCount) {
 
         val mutableAL : List<MutableList<Vertex>> = List(nodeCount) { mutableListOf() }
         val mutableEdges = MutableList(edgeCount) { Edge(0, 0, 0) }
@@ -29,7 +29,6 @@ class Graph(val nodeCount: Int,val edgeCount: Int) {
             val r = Random.nextInt(nodeCount - 1)
 
             val c = Random.nextInt(1,maxEdgeCost)
-
             // assure that the 2 random numbers are not the same
             // always saving edges that lead smaller to bigger
             if (n1 > r){
@@ -37,9 +36,7 @@ class Graph(val nodeCount: Int,val edgeCount: Int) {
             } else {
                 mutableAL[n1].add(Vertex(r+1,c))
             }
-
         }
-
         adjacencyList = mutableAL
         edges = mutableEdges
     }
