@@ -45,9 +45,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.textfield.TextInputEditText
 import java.io.IOException
@@ -56,16 +54,7 @@ import kotlin.random.Random
 
 data class City(val name: String, val lat: Double, val long:Double, val view:TableRow)
 
-class GraphCreation : Fragment(),  GoogleMap.OnMarkerClickListener, OnMapReadyCallback {
-    private val PERTH = LatLng(-31.952854, 115.857342)
-    private val SYDNEY = LatLng(-33.87365, 151.20689)
-    private val BRISBANE = LatLng(-27.47093, 153.0235)
-
-    private var markerPerth: Marker? = null
-    private var markerSydney: Marker? = null
-    private var markerBrisbane: Marker? = null
-
-
+class GraphCreation : Fragment(){
 
     private lateinit var nameInput: TextInputEditText
     private lateinit var latInput: TextInputEditText
@@ -76,6 +65,8 @@ class GraphCreation : Fragment(),  GoogleMap.OnMarkerClickListener, OnMapReadyCa
     private lateinit var cityTable: TableLayout
     private lateinit var GoogleGetDataButton: ImageView
     private lateinit var GPSGetDataButton: ImageView
+    private lateinit var mMap: GoogleMap
+
 
     private var cities = mutableListOf<City>()
 
@@ -127,16 +118,13 @@ class GraphCreation : Fragment(),  GoogleMap.OnMarkerClickListener, OnMapReadyCa
 
             initializeComponents(this)
 
+            var fuckingView: Context
+            fuckingView = context
 
-
-            GoogleGetDataButton.setOnClickListener{
+            GoogleGetDataButton.setOnClickListener(){
                 val locationText = nameInput.text.toString()
 
                 var addressList: List<Address>?= null
-
-                var fuckingView: Context
-                fuckingView = context
-
                 val geoCoder = Geocoder(fuckingView)
                 try{
                     addressList = geoCoder.getFromLocationName(locationText, 1)
@@ -145,9 +133,13 @@ class GraphCreation : Fragment(),  GoogleMap.OnMarkerClickListener, OnMapReadyCa
                     e.printStackTrace()
                 }
                 val address=addressList!![0]
-                val latLng = LatLng(address.latitude, address.longitude)
-                Log.d("dataNIGGERS", latLng.toString())
+                var citybuffer = LatLng(address.latitude, address.longitude)
+                Log.d("dataNIGGERS", citybuffer.toString())
 
+                mMap.addMarker(MarkerOptions().position(citybuffer).title("Mark"))
+
+               longInput.setText((address.longitude).toString())
+                latInput.setText((address.latitude).toString())
 
             }
 
@@ -183,6 +175,8 @@ class GraphCreation : Fragment(),  GoogleMap.OnMarkerClickListener, OnMapReadyCa
 
                 addCity(nameInput.text.toString(), lat, long)
 
+
+
             }
 
             randomizeButton.setOnClickListener {
@@ -212,48 +206,4 @@ class GraphCreation : Fragment(),  GoogleMap.OnMarkerClickListener, OnMapReadyCa
             return this
         }
     }
-    override fun onMapReady(map: GoogleMap) {
-        // Add some markers to the map, and add a data object to each marker.
-        markerPerth = map.addMarker(
-            MarkerOptions()
-                .position(PERTH)
-                .title("Perth")
-        )
-        markerPerth?.tag = 0
-        markerSydney = map.addMarker(
-            MarkerOptions()
-                .position(SYDNEY)
-                .title("Sydney")
-        )
-        markerSydney?.tag = 0
-        markerBrisbane = map.addMarker(
-            MarkerOptions()
-                .position(BRISBANE)
-                .title("Brisbane")
-        )
-        markerBrisbane?.tag = 0
-
-        // Set a listener for marker click.
-        map.setOnMarkerClickListener(this)
-    }
-
-    /** Called when the user clicks a marker.  */
-    override fun onMarkerClick(marker: Marker): Boolean {
-
-        // Retrieve the data from the marker.
-        val clickCount = marker.tag as? Int
-
-        // Check if a click count was set, then display the click count.
-        clickCount?.let {
-            val newClickCount = it + 1
-            marker.tag = newClickCount
-
-        }
-
-        // Return false to indicate that we have not consumed the event and that we wish
-        // for the default behavior to occur (which is for the camera to move such that the
-        // marker is centered and for the marker's info window to open, if it has one).
-        return false
-    }
-
 }
