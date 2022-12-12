@@ -1,44 +1,35 @@
 package com.example.travelingapp
 
-import android.util.Log
+
+import kotlin.math.pow
+import kotlin.math.sqrt
 import kotlin.random.Random
 
-data class Edge(val n1:Int,val n2: Int, val c:Int)
-data class Vertex(val n: Int, val c:Int)
+data class Vertex(val x:Double, val y:Double)
 
-class Graph(val nodeCount: Int,val edgeCount: Int) {
-    private lateinit var adjacencyList: List<List<Vertex>>
-    lateinit var edges: List<Edge>
-
-    fun getEdge(n1:Int,n2:Int): Vertex? {
-        return if (n1<n2){
-            adjacencyList[n1].find { it.n == n2 }
-        }else {
-            adjacencyList[n2].find { it.n == n1 }
-        }
+class Graph {
+    var vertices:List<Vertex>
+    fun getEdge(n1:Int,n2:Int):Double {
+        return sqrt (
+            ((vertices[n1].x - vertices[n2].x)).pow(2) +
+                    ((vertices[n1].y - vertices[n2].y)).pow(2)
+        )
+    }
+    constructor(vertices:List<Vertex>){
+        this.vertices = vertices
     }
 
-    constructor(nodeCount: Int = 6, edgeCount: Int = 50, maxEdgeCost: Int = 10) : this(nodeCount,edgeCount) {
+    constructor(vertexCount: Int = 5, maxEdgeCost: Int = 10) {
 
-        val mutableAL : List<MutableList<Vertex>> = List(nodeCount) { mutableListOf() }
-        val mutableEdges = MutableList(edgeCount) { Edge(0, 0, 0) }
+        var vertices = mutableListOf<Vertex>()
 
-        for(i in 0 until edgeCount){
-
-            val n1 = Random.nextInt(nodeCount)
-            val r = Random.nextInt(nodeCount - 1)
-
-            val c = Random.nextInt(1,maxEdgeCost)
-            // assure that the 2 random numbers are not the same
-            // always saving edges that lead smaller to bigger
-            if (n1 > r){
-                mutableAL[r].add(Vertex(n1,c))
-            } else {
-                mutableAL[n1].add(Vertex(r+1,c))
-            }
+        for(i in 0 until vertexCount){
+            vertices.add(Vertex(Random.nextInt(maxEdgeCost).toDouble(),Random.nextInt(maxEdgeCost).toDouble()))
         }
-        adjacencyList = mutableAL
-        edges = mutableEdges
+        this.vertices = vertices
+
+
+
     }
 
 

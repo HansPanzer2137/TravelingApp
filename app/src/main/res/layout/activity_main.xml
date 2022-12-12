@@ -6,60 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/calculate"
-        android:layout_width="128dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="56dp"
-        android:text="Calculate"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="128dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="56dp"
-        android:text="Edit list"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/logText"
-        android:layout_width="354dp"
-        android:layout_height="437dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text=""
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text2137"
-        android:layout_width="348dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="520dp"
-        android:text=""
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/progressBAR2137"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="351dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="480dp"
-        android:max="720"
-        android:progress="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        tools:layout="@layout/fragment_graph_creation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.tsp.GraphCreation"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

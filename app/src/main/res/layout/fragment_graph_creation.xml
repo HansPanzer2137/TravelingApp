@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GraphCreation">
+
+
+    <TableLayout
+        android:id="@+id/cityTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="name"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="long"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="lat"
+                android:textStyle="bold"/>
+        </TableRow>
+    </TableLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        >
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:gravity="right"
+                android:text="@string/NameInputLabel" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="right"
+                android:text="@string/longInputLabel" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/longInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:gravity="right"
+                android:text="@string/latInputLabel" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/latInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="20px">
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:text="@string/addButtonLabel" />
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/randomizeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="RANDOMIZE" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/calculatePathButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20px"
+            android:layout_gravity="bottom"
+            android:text="CALCULATE PATH" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+</FrameLayout>

@@ -1,108 +1,78 @@
+/*
+    TSP implementation in Android Studio
+        HUBERT TOPOLSKI 4PRT5 (https://github.com/HansPanzer2137)
+
+        Special thanks for:
+        Huber Wasilewski 4PRT5 (https://github.com/SNIAPA)
+        Nikodem Mikucki 4PRT5 (https://github.com/miamilemon)
+ */
+
+/*
+
+    This file is part of TravelingApp.
+
+    TravelingApp is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+
+    Foobar is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Traveling.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+
+
+ */
+
+
+
+/*
+TODO:
+   *Working generating sample data [*]
+   *TSP brute-force alpha implement [ ]
+   *TSP mathematical optimalization [ ]
+   *Getting data of cities and distances from editable menu (ListCity.kt) [ ]
+   *Getting data from outside service about distance between every city [ ]
+   *UI/UX design and code comment/optimalization [ ]
+
+ */
+
 package com.example.travelingapp
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.ProgressBar
-import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentContainerView
 
+const val CITY_LIMIT = 8
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var fragmentContainer: FragmentContainerView
 
-    class Salesman{
-        public var logcat = ""
-        private fun <T>permutations(list: List<T>)  = sequence<List<T>> {
-            val factorials = IntArray(list.size + 1)
-            factorials[0] = 1
-            for (i in 1..list.size) {
-                factorials[i] = factorials[i - 1] * i
-            }
-            for (i in 0 until factorials[list.size]) {
-                var onePermutation = mutableListOf<T>()
-                var temp = list
-                var positionCode = i
-                for (position in list.size downTo 1) {
-                    val selected = positionCode / factorials[position - 1]
-                    onePermutation += temp[selected]
-                    positionCode %= factorials[position - 1]
-                    temp = list.subList(0, selected) + temp.subList(selected + 1,temp.size);
-                }
-                yield(onePermutation)
-            }
-        }
-        var graph:Graph;
+    private fun initializeComponents(){
 
-        constructor(graph: Graph){
-            this.graph = graph
-        }
+        fragmentContainer = findViewById(R.id.fragmentContainer)
 
-        fun calculatePath(permutation: List<Int>): Int? {
-
-            var currentPath = 0
-            for (i in 1 until permutation.size){
-
-                val n1 = permutation[i-1]
-                val n2 = permutation[i]
-
-                val edge = graph.getEdge(n1,n2) ?: return null
-
-                currentPath +=  edge.c
-
-            }
-            return currentPath
-        }
-
-        fun solve(): Pair<List<Int>, Int>? {
-            val permutations = permutations((0 until graph.nodeCount).toList() )
-
-            var ans = Pair(listOf<Int>(),Int.MAX_VALUE)
-
-            for (permutation in permutations){
-                Log.d("TRY",permutation.toString())
-
-                logcat = logcat + permutation.toString() + "\n"
-
-
-                var currentPath = calculatePath(permutation) ?: continue
-                if (currentPath <  ans.second) {
-                    ans = Pair(permutation,currentPath)
-                }
-            }
-            if (ans.second == Int.MAX_VALUE){
-                return null
-            }
-            return ans
-        }
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val calcBNT: Button = findViewById(R.id.calculate)
-        val editList: Button = findViewById(R.id.button2)
-        val logTXT: TextView = findViewById(R.id.logText)
-        val finalTXT: TextView = findViewById(R.id.text2137)
-        val progress: ProgressBar = findViewById(R.id.progressBAR2137)
+        initializeComponents()
 
 
-
-
-        calcBNT.setOnClickListener{
-            var graph = Graph()
-            var algo = Salesman(graph)
-            var path = algo.solve()
-
-            logTXT.text = algo.logcat
-            Log.d("ans",path.toString())
-            finalTXT.text = path.toString()
-        }
-        editList.setOnClickListener{
-
-        }
+        Log.d("source id",fragmentContainer.id.toString())
 
     }
 }

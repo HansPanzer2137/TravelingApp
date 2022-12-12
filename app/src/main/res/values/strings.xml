@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">TravelingApp</string>
+    <string name="app_name">Traveling App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="longInputLabel">long:</string>
+    <string name="latInputLabel">lat:</string>
+    <string name="NameInputLabel">name:</string>
+    <string name="addButtonLabel">ADD</string>
+    <string name="current_permutation_label">Current permutation: </string>
+    <string name="best_permutation_label">Best permutation: </string>
+    <string name="cancel_button_label">CANCEL</string>
+    <string name="next_label">NEXT</string>
 </resources>
