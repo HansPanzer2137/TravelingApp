@@ -46,6 +46,8 @@ import androidx.fragment.app.Fragment
 import java.text.SimpleDateFormat
 import java.util.*
 
+
+@Suppress("DEPRECATION")
 class GraphResult : Fragment() {
 
     companion object {

@@ -10,4 +10,10 @@
     <string name="best_permutation_label">Best permutation: </string>
     <string name="cancel_button_label">CANCEL</string>
     <string name="next_label">NEXT</string>
+    <string name="maps_api_key">AIzaSyD1DZfJyvdj6af2-x3Yq9vrinjN89A-irA</string>
+
+    <string name="table1">Name</string>
+    <string name="table2">LONG.</string>
+    <string name="table3">LAT.</string>
+
 </resources>

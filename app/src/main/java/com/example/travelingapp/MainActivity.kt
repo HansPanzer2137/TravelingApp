@@ -52,14 +52,12 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentContainerView
 
+
 const val CITY_LIMIT = 8
 
-class MainActivity : AppCompatActivity() {
-
-    lateinit var fragmentContainer: FragmentContainerView
-
+class MainActivity : AppCompatActivity(){
+        lateinit var fragmentContainer: FragmentContainerView
     private fun initializeComponents(){
-
         fragmentContainer = findViewById(R.id.fragmentContainer)
 
     }
@@ -71,8 +69,11 @@ class MainActivity : AppCompatActivity() {
 
         initializeComponents()
 
-
         Log.d("source id",fragmentContainer.id.toString())
 
     }
+
+
+
+
 }

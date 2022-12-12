@@ -8,30 +8,34 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_margin="20px"
-        >
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/mapfragment"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="850px"
+            android:layout_height="1000px"
+            android:layout_marginLeft="100px"
+            android:layout_marginTop="100px"/>
+
         <TextView
             android:id="@+id/ansTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="asd"
-            />
+            android:text="asd" />
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1" />
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -40,16 +44,16 @@
                     android:id="@+id/backButton"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_marginEnd="10dp"
-                    android:text="back"/>
+                    android:layout_weight="1"
+                    android:text="back" />
 
                 <Button
                     android:id="@+id/saveButton"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="save"/>
+                    android:text="save" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
 

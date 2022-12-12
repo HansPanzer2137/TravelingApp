@@ -19,47 +19,71 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="2dp"
-                android:text="name"
+                android:text="@string/table1"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="2dp"
-                android:text="long"
+                android:text="@string/table2"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="2dp"
-                android:text="lat"
+                android:text="@string/table3"
                 android:textStyle="bold"/>
         </TableRow>
+
+
     </TableLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="260dp"
+        />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:padding="10dp"
                 android:gravity="right"
+                android:padding="10dp"
                 android:text="@string/NameInputLabel" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nameInput"
-                android:layout_width="match_parent"
+                android:layout_width="600px"
                 android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/GetFromService"
+                android:layout_width="150px"
+                android:layout_height="100px"
+                android:layout_marginRight="20px"
+                android:src="@drawable/googleg_standard_color_18" />
+
+            <ImageView
+                android:id="@+id/locationActual"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:src="@drawable/gps" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -70,8 +94,8 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:gravity="right"
+                android:padding="10dp"
                 android:text="@string/longInputLabel" />
 
             <com.google.android.material.textfield.TextInputEditText
@@ -88,8 +112,8 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:padding="10dp"
                 android:gravity="right"
+                android:padding="10dp"
                 android:text="@string/latInputLabel" />
 
             <com.google.android.material.textfield.TextInputEditText
@@ -98,39 +122,40 @@
                 android:layout_height="match_parent" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="20px">
+            android:layout_margin="20px"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/addButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
                 android:layout_gravity="bottom"
+                android:layout_marginEnd="20dp"
                 android:layout_weight="1"
                 android:text="@string/addButtonLabel" />
+
             <Button
-                android:layout_weight="1"
                 android:id="@+id/randomizeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:layout_weight="1"
                 android:text="RANDOMIZE" />
         </androidx.appcompat.widget.LinearLayoutCompat>
+
         <Button
-            android:layout_weight="1"
             android:id="@+id/calculatePathButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20px"
             android:layout_gravity="bottom"
+            android:layout_margin="20px"
+            android:layout_weight="1"
             android:text="CALCULATE PATH" />
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-
 
 
 </FrameLayout>
