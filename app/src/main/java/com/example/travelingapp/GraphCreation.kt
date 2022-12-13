@@ -120,6 +120,7 @@ class GraphCreation : Fragment(){
 
             var fuckingView: Context
             fuckingView = context
+            var citybuffer = LatLng(0.0, 0.0)
 
             GoogleGetDataButton.setOnClickListener(){
                 val locationText = nameInput.text.toString()
@@ -133,10 +134,10 @@ class GraphCreation : Fragment(){
                     e.printStackTrace()
                 }
                 val address=addressList!![0]
-                var citybuffer = LatLng(address.latitude, address.longitude)
+                citybuffer = LatLng(address.latitude, address.longitude)
                 Log.d("dataNIGGERS", citybuffer.toString())
 
-                mMap.addMarker(MarkerOptions().position(citybuffer).title("Mark"))
+
 
                longInput.setText((address.longitude).toString())
                 latInput.setText((address.latitude).toString())
@@ -174,6 +175,7 @@ class GraphCreation : Fragment(){
                 }
 
                 addCity(nameInput.text.toString(), lat, long)
+                mMap.addMarker(MarkerOptions().position(citybuffer).title("Mark"))
 
 
 
