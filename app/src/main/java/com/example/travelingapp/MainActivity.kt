@@ -35,11 +35,11 @@
 /*
 TODO:
    *Working generating sample data [*]
-   *TSP brute-force alpha implement [ ]
-   *TSP mathematical optimalization [ ]
-   *Getting data of cities and distances from editable menu (ListCity.kt) [ ]
-   *Getting data from outside service about distance between every city [ ]
-   *UI/UX design and code comment/optimalization [ ]
+   *TSP brute-force alpha implement [*]
+   *TSP mathematical optimalization [*]
+   *Getting data of cities and distances from editable menu (ListCity.kt) [*]
+   *Getting data from outside service about distance between every city [-]  (No time, thank you fucking school shit)
+   *UI/UX design and code comment/optimalization [-]
 
  */
 

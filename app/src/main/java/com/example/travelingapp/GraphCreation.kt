@@ -46,7 +46,6 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.textfield.TextInputEditText
 import java.io.IOException
 import kotlin.random.Random
@@ -67,7 +66,6 @@ class GraphCreation : Fragment(){
     private lateinit var GPSGetDataButton: ImageView
     private lateinit var mMap: GoogleMap
 
-
     private var cities = mutableListOf<City>()
 
     private fun initializeComponents(view:View){
@@ -81,7 +79,6 @@ class GraphCreation : Fragment(){
             calculatePathButton = findViewById(R.id.calculatePathButton)
             cityTable = findViewById(R.id.cityTable)
             GoogleGetDataButton = findViewById(R.id.GetFromService)
-            GPSGetDataButton = findViewById(R.id.locationActual)
 
         }
 
@@ -144,10 +141,6 @@ class GraphCreation : Fragment(){
 
             }
 
-            GPSGetDataButton.setOnClickListener{
-
-            }
-
 
 
             addButton.setOnClickListener {
@@ -175,7 +168,9 @@ class GraphCreation : Fragment(){
                 }
 
                 addCity(nameInput.text.toString(), lat, long)
-                mMap.addMarker(MarkerOptions().position(citybuffer).title("Mark"))
+                //val mMap = supportFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment
+                //mMap?.getMapAsync(this@GraphCreation)
+                //mMap.addMarker(MarkerOptions().position(citybuffer).title("Mark"+cities.size.toString()))
 
 
 

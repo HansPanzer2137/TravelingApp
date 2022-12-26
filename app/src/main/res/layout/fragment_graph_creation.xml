@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -41,13 +42,6 @@
 
     </TableLayout>
 
-    <fragment xmlns:map="http://schemas.android.com/apk/res-auto"
-        class="com.google.android.gms.maps.SupportMapFragment"
-        android:id="@+id/map"
-        android:layout_width="400dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="260dp"
-        />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -69,8 +63,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nameInput"
-                android:layout_width="600px"
-                android:layout_height="match_parent" />
+                android:layout_width="750px"
+                android:layout_height="match_parent"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <ImageView
                 android:id="@+id/GetFromService"
@@ -79,11 +74,7 @@
                 android:layout_marginRight="20px"
                 android:src="@drawable/googleg_standard_color_18" />
 
-            <ImageView
-                android:id="@+id/locationActual"
-                android:layout_width="150px"
-                android:layout_height="match_parent"
-                android:src="@drawable/gps" />
+
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -102,7 +93,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/longInput"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -120,7 +112,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/latInput"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
