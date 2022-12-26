@@ -4,22 +4,20 @@ Android + Google API Traveling Salesman Problem
 
 ## General math problems
 
-General problem in algorithm is time.<br>
-For n cities algorithm calculate (n-1)!/2 so it means that algorithm do n!
+Algorithm creates a graph with connections, and tests every single connection from N instance to another point in graph but use only that, is shortest<br> 
+For n cities algorithm calculate (n-1)!/2 so it means that algorithm do n! in brouteforce-writed method
 <br><br>
 That calculations give you informations about time that algorithm spends on calculation<br>
 Data was tested on device [Xiaomi Mi9 6/128GB](https://www.mgsm.pl/pl/katalog/xiaomi/mi9/) <br><br>
 
-6! = ?s<br>
-7! = ?s<br>
-8! = 86370 ms = 86.37 s<br>
+5! => 120    = less that 1s<br>
+6! => 720    = ?s<br>
+7! => 5040   = ?s<br>
+8! => 40320  = something about 1s
 
 
 <br><br>
 ## Data sample
-
-
-
 
 List of cities can be edited, basically the sample data list has got 10 cities.
 Distance between cities fetched by Google API
@@ -40,3 +38,4 @@ Distance between cities fetched by Google API
 | Poznań (zadupie) 	| 311    	| 188   	| 311      	| 458    	| 211  	| 383            	| 182     	| 0                	| 274         	|
 | Berlin(CIA)      	| 572    	| 449   	| 573      	| 599    	| 621  	| 524            	| 344     	| 174              	| 0           	|
 
+[WARNING!] List is not implement due time conflicts
